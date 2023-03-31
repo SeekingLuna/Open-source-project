@@ -4,6 +4,7 @@ package com.li.controller;
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.li.dao.UserMapper;
+import com.li.domain.Rusult;
 import com.li.domain.User;
 import com.li.domain.User02;
 import com.mysql.cj.util.StringUtils;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+@ResponseBody
 //设置web根路径映射
 @RequestMapping
 //加入到Context上下文容器 并表明属于处理器
@@ -48,34 +49,35 @@ public class TestController {
      * 并指定method属性为RequestMethod.GET和RequestMethod.POST。
      **/
     @RequestMapping(value = "/getOwnName", method = {RequestMethod.GET, RequestMethod.POST})
-    public String getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
-        return ownName + "的年龄是:" + ownAge;
+    public Rusult getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
+        return new Rusult(0, "success", ownName + ownAge);
     }
 
     @RequestMapping(value = "/dateTimeTest", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public String dataTimeTest(@RequestParam("dateAndTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dateTime) {
+    public Rusult dataTimeTest(@RequestParam("dateAndTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dateTime) {
 
         System.out.println(dateTime);
-        return String.valueOf(dateTime);
+        return new Rusult(0, "success", dateTime);
     }
 
     @RequestMapping(value = "jsonTest", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public String jsonTest(@RequestBody User02 user02) {
+    public Rusult jsonTest(@RequestBody User02 user02) {
         System.out.println(user02.toString());
 
 
-        return "add successful";
+        return new Rusult(0, "success", null);
     }
 
-    @RequestMapping(value = "/path/{pathId}", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/path/{pathId}/{name}", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public String path(@PathVariable String pathId) {
+    public Rusult path(@PathVariable String pathId, @PathVariable String name) {
         System.out.println(pathId);
+        System.out.println(name);
 
 
-        return pathId;
+        return new Rusult(0, "success", pathId + name);
     }
 
 
