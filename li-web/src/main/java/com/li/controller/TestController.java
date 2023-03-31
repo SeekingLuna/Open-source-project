@@ -5,14 +5,15 @@ import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.li.dao.UserMapper;
 import com.li.domain.User;
+import com.li.domain.User02;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.server.RequestPath;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 //设置web根路径映射
@@ -39,4 +40,44 @@ public class TestController {
         String jsonString = JSON.toJSONString(users);
         return jsonString;
     }
+
+    /**
+     * 需要响应HTTP GET请求，你应该使用@GetMapping注解，它只会响应HTTP GET请求。
+     * 需要处理POST请求，你应该使用@PostMapping或@RequestMapping注解，并将method属性设置为RequestMethod.POST。
+     * 如果你需要同时响应HTTP GET请求和HTTP POST请求，你可以使用@RequestMapping注解，
+     * 并指定method属性为RequestMethod.GET和RequestMethod.POST。
+     **/
+    @RequestMapping(value = "/getOwnName", method = {RequestMethod.GET, RequestMethod.POST})
+    public String getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
+        return ownName + "的年龄是:" + ownAge;
+    }
+
+    @RequestMapping(value = "/dateTimeTest", method = {RequestMethod.GET, RequestMethod.POST})
+
+    public String dataTimeTest(@RequestParam("dateAndTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dateTime) {
+
+        System.out.println(dateTime);
+        return String.valueOf(dateTime);
+    }
+
+    @RequestMapping(value = "jsonTest", method = {RequestMethod.GET, RequestMethod.POST})
+
+    public String jsonTest(@RequestBody User02 user02) {
+        System.out.println(user02.toString());
+
+
+        return "add successful";
+    }
+
+    @RequestMapping(value = "/path/{pathId}", method = {RequestMethod.GET, RequestMethod.POST})
+
+    public String path(@PathVariable String pathId) {
+        System.out.println(pathId);
+
+
+        return pathId;
+    }
+
+
 }
+
