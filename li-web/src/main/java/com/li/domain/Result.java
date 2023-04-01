@@ -1,14 +1,14 @@
 package com.li.domain;
 
-public class Rusult {
+public class Result {
     Integer code;  //1:success,0:fail
     String message;
     Object data;
 
-    public Rusult() {
+    public Result() {
     }
 
-    public Rusult(Integer code, String message, Object data) {
+    public Result(Integer code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;

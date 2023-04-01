@@ -4,18 +4,19 @@ package com.li.controller;
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.li.dao.UserMapper;
-import com.li.domain.Rusult;
+import com.li.domain.Result;
+import com.li.domain.Tasks;
 import com.li.domain.User;
 import com.li.domain.User02;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.server.RequestPath;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 @ResponseBody
 //设置web根路径映射
 @RequestMapping
@@ -49,37 +50,43 @@ public class TestController {
      * 并指定method属性为RequestMethod.GET和RequestMethod.POST。
      **/
     @RequestMapping(value = "/getOwnName", method = {RequestMethod.GET, RequestMethod.POST})
-    public Rusult getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
-        return new Rusult(0, "success", ownName + ownAge);
+    public Result getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
+        return new Result(0, "success", ownName + ownAge);
     }
 
     @RequestMapping(value = "/dateTimeTest", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public Rusult dataTimeTest(@RequestParam("dateAndTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dateTime) {
+    public Result dataTimeTest(@RequestParam("dateAndTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dateTime) {
 
         System.out.println(dateTime);
-        return new Rusult(0, "success", dateTime);
+        return new Result(0, "success", dateTime);
     }
 
     @RequestMapping(value = "jsonTest", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public Rusult jsonTest(@RequestBody User02 user02) {
+    public Result jsonTest(@RequestBody User02 user02) {
         System.out.println(user02.toString());
 
 
-        return new Rusult(0, "success", null);
+        return new Result(0, "success", null);
     }
 
     @RequestMapping(value = "/path/{pathId}/{name}", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public Rusult path(@PathVariable String pathId, @PathVariable String name) {
+    public Result path(@PathVariable String pathId, @PathVariable String name) {
         System.out.println(pathId);
         System.out.println(name);
 
 
-        return new Rusult(0, "success", pathId + name);
+        return new Result(0, "success", pathId + name);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/tasks", method = {RequestMethod.GET, RequestMethod.POST})
+    public Result tasks(@RequestBody Tasks tasks) {
 
+        System.out.println(tasks.toString());
+        return new Result(0, "success", tasks);
+    }
 }
 
