@@ -68,7 +68,7 @@ public class TestController {
         System.out.println(user02.toString());
 
 
-        return new Result(0, "success", null);
+        return new Result(0, "success", user02);
     }
 
     @RequestMapping(value = "/path/{pathId}/{name}", method = {RequestMethod.GET, RequestMethod.POST})

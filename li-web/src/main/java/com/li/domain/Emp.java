@@ -1,6 +1,53 @@
 package com.li.domain;
 
 public class Emp {
+
+//   public static void main(String[] args) throws ClassNotFoundException, IOException {
+//       List<Class<?>> classes = getClasses("com.li");
+//       for (Class<?> aClass : classes) {
+//           System.out.println(aClass.getName());
+//           Annotation[] annotations = aClass.getAnnotations();
+//
+//           System.out.println(Arrays.toString(annotations));
+//           System.out.println("===================================");
+//       }
+//       // 要扫描的包
+//
+//
+//
+//   }
+//    public static List<Class<?>> getClasses(String packageName) {
+//        List<Class<?>> classes = new ArrayList<>();
+//        String packagePath = packageName.replace('.', '/');
+//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+//        URL resource = classLoader.getResource(packagePath);
+//        if (resource == null) {
+//            return classes;
+//        }
+//        File dir = new File(resource.getFile());
+//        if (!dir.isDirectory()) {
+//            return classes;
+//        }
+//        File[] files = dir.listFiles();
+//        if (files == null) {
+//            return classes;
+//        }
+//        for (File file : files) {
+//            String fileName = file.getName();
+//            if (file.isDirectory()) {
+//                classes.addAll(getClasses(packageName + "." + fileName));
+//            } else if (fileName.endsWith(".class")) {
+//                String className = packageName + '.' + fileName.substring(0, fileName.length() - 6);
+//                try {
+//                    classes.add(Class.forName(className));
+//                } catch (ClassNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//        return classes;
+//    }
+
     private String name;
     private Integer age;
     private String image;
