@@ -13,9 +13,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="li-common" target="1.5" />
-      <module name="li-leetcode" target="1.8" />
-      <module name="li-web" target="1.8" />
       <module name="MyProject" target="1.5" />
     </bytecodeTargetLevel>
   </component>

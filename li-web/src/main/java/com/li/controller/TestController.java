@@ -14,6 +14,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -64,7 +66,9 @@ public class TestController {
 
     @RequestMapping(value = "jsonTest", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public Result jsonTest(@RequestBody User02 user02) {
+    public Result jsonTest(@RequestBody User02 user02, HttpServletRequest request) throws IOException {
+        System.out.println(request.getMethod());
+        System.out.println(request.getRequestURL());
         System.out.println(user02.toString());
 
 
