@@ -4,9 +4,11 @@ import com.li.dao.EmpDao;
 import com.li.dao.impl.EmpDaoA;
 import com.li.domain.Emp;
 import com.li.service.Empservice;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmpserviceA implements Empservice {
     EmpDao empDao = new EmpDaoA();
 
