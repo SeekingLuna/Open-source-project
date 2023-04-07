@@ -50,6 +50,7 @@ public class TestController {
     public Result getOwnName(@RequestParam("name") String ownName, @RequestParam("age") int ownAge) {
         return new Result(0, "success", ownName + ownAge);
 
+
     }
 
 
@@ -79,9 +80,8 @@ public class TestController {
     public Result path(@PathVariable String pathId, @PathVariable String name) {
         System.out.println(pathId);
         System.out.println(name);
-
-
         return new Result(0, "success", pathId + name);
+
     }
 
     @ResponseBody
