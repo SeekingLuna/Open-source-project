@@ -13,7 +13,9 @@
     <modules>
         <module>li-common</module>
         <module>li-leetcode</module>
-        <module>li-web</module>
+        <module>li-web-springBootQuiklyStart</module>
+        <module>li-web-mybatisQuiklyStrat</module>
+
     </modules>
 
 

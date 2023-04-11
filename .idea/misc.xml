@@ -4,7 +4,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/li-common/pom.xml" />
+        <option value="$PROJECT_DIR$/li-web/springBootQuicklyStart/pom.xml" />
+        <option value="$PROJECT_DIR$/springBootQuicklyStart/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
