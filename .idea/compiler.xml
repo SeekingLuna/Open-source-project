@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="li-web-springBootQuiklyStart" />
         <module name="li-common" />
+        <module name="li-web-springBootQuiklyStart" />
         <module name="li-web-mybatisQuiklyStrat" />
+        <module name="li-web-bilibili" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

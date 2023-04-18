@@ -15,6 +15,7 @@
         <module>li-leetcode</module>
         <module>li-web-springBootQuiklyStart</module>
         <module>li-web-mybatisQuiklyStrat</module>
+        <module>li-web-bilibili</module>
 
     </modules>
 
