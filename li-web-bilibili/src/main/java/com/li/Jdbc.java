@@ -10,7 +10,7 @@ public class Jdbc {
 //        insert();
 //    }
 
-    public void insert() {
+    public void insert(User user) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -19,15 +19,14 @@ public class Jdbc {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // 建立数据库连接
-            String url = "jdbc:mysql://47.115.229.205:3306/bilibili";
+            String url = "jdbc:mysql://localhost:3306/bilibili";
             String username = "root";
-            String password = "3B8E9839C03208161D7990979CF51104";
+            String password = "root";
             conn = DriverManager.getConnection(url, username, password);
 
             // 创建PreparedStatement对象并执行插入
             String sql = "INSERT INTO user (midid, name,follower, following ,sign) VALUES (?, ?, ?,?, ?)";
             stmt = conn.prepareStatement(sql);
-            User user = Main.userArrayList.get(0);
             stmt.setInt(1, user.getMidid());
             stmt.setString(2, user.getName());
             stmt.setInt(3, user.getFollowing());
