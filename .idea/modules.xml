@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/li-leetcode/li-leetcode.iml" filepath="$PROJECT_DIR$/li-leetcode/li-leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/li-web-springBootQuiklyStart/li-web-springBootQuiklyStart.iml" filepath="$PROJECT_DIR$/li-web-springBootQuiklyStart/li-web-springBootQuiklyStart.iml" />
     </modules>
   </component>
 </project>
