@@ -6,13 +6,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.li.dao.UserMapper;
 import com.li.dao.impl.JDBC;
 import com.li.domain.*;
+import com.li.utils.GetRandomNumber;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -129,6 +132,34 @@ public class TestController {
         }
         List<User03> subList = userList.stream().skip((pageIndex - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
         return new Result(0, "success", new Pages(subList, totalPages, pageSize, pageIndex));
+    }
+
+    @RequestMapping(value = "setCookies", method = {RequestMethod.GET, RequestMethod.POST})
+    public Result setCookies(HttpServletResponse httpServletResponse) {
+        int value = GetRandomNumber.getRandom();
+        Cookie cookie=new  Cookie("id", String.valueOf(value));
+        httpServletResponse.addCookie(cookie);
+        System.out.println(cookie.getName()+","+cookie.getValue());
+
+        return new Result(0, "success", null);
+
+
+    }
+
+    @RequestMapping(value = "getCookies", method = {RequestMethod.GET, RequestMethod.POST})
+    public Result getCookies(HttpServletRequest httpServletRequest) {
+
+        for (Cookie cookie : httpServletRequest.getCookies()) {
+            if (cookie.getName().equals("id")) {
+                System.out.println(cookie.getName()+","+cookie.getValue());
+
+                return new Result(0, "success", cookie.getName()+","+cookie.getValue());
+            }
+
+        }
+
+        return new Result(1, "failed", null);
+
     }
 
 }

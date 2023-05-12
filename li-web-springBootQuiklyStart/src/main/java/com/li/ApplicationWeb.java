@@ -13,7 +13,6 @@ public class ApplicationWeb {
 //        容器
         ConfigurableApplicationContext context = SpringApplication.run(ApplicationWeb.class, args);
 
-        EmpDaoA bean = context.getBean(EmpDaoA.class);
-        System.out.println("EmpDaoA::" + bean);
+
     }
 }
