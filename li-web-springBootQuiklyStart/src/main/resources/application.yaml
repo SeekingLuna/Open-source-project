@@ -4,9 +4,9 @@ spring:
     image:
       location: /static/250px-Xi_Jinping_in_2019_(cropped).jpg
   datasource:
-    url: jdbc:mysql://localhost:3306/testdb1
+    url: jdbc:mysql://47.115.229.205:3306/user_info
     username: root
-    password: root
+    password: 3B8E9839C03208161D7990979CF51104
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   #    允许循环依赖
