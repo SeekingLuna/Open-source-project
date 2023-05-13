@@ -9,6 +9,7 @@ spring:
     password: 3B8E9839C03208161D7990979CF51104
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
   #    允许循环依赖
   main:
     allow-circular-references: true

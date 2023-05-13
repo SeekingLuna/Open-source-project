@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ResponseBody
 //设置web根路径映射
 @RequestMapping
 //加入到Context上下文容器 并表明属于处理器
