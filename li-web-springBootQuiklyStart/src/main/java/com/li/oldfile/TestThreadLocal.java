@@ -22,7 +22,7 @@ public class TestThreadLocal {
         System.out.println(max);
 
         System.out.println(integerArrayList.stream().max(Comparator.comparing(User::getId)).get().getId());
-
+        System.out.println("test");
 
 
     }
