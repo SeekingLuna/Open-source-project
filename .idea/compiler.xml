@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="li-common" />
+        <module name="Product-Management" />
         <module name="li-web-springBootQuiklyStart" />
         <module name="li-web-chatGPT" />
         <module name="li-web-mybatisQuiklyStrat" />
@@ -23,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Product-Management" options="-parameters" />
       <module name="li-web-chatGPT" options="-parameters" />
     </option>
   </component>
